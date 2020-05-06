@@ -5,9 +5,12 @@
     <e p="C:\Users\Sonne\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_CSharpAssignment.2053678403.00" t="ExcludeRecursive" />
     <e p="C:\Users\Sonne\Desktop\Github\CSharpAssignment" t="IncludeRecursive">
       <e p=".gitignore" t="Include" />
+      <e p="Bank.cs" t="Include" />
       <e p="bin" t="ExcludeRecursive" />
+      <e p="Commands.cs" t="Include" />
       <e p="CSharpAssignment.csproj" t="IncludeRecursive" />
       <e p="CSharpAssignment.sln" t="IncludeFlat" />
+      <e p="Inventory.cs" t="Include" />
       <e p="obj" t="ExcludeRecursive">
         <e p="Debug" t="Include">
           <e p="netcoreapp3.1" t="Include">
@@ -17,7 +20,6 @@
       </e>
       <e p="packages" t="ExcludeRecursive" />
       <e p="Program.cs" t="Include" />
-      <e p="User.cs" t="Include" />
     </e>
   </component>
 </project>
