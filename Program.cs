@@ -117,13 +117,22 @@ namespace CSharpAssignment
                         {
                             Console.WriteLine("What would you like to buy?");
                             var buyInput = Console.ReadLine();
+                            int value;
+                            inventory.GoodsAvailable.TryGetValue(buyInput, out value);
 
                             if (inventory.GoodsAvailable.ContainsKey(buyInput))
                             {
-                                // Check MoneyInPocket, make sure it removes the cost. 
-                                inventory.Buy(buyInput);
-                                // bank.MoneyInPocket -= inventory.
 
+                                if (value > bank.MoneyInPocket)
+                                {
+                                    Console.WriteLine("You don't have enough money, try withdrawing money from the bank.");
+                                }
+                                else
+                                {
+                                    inventory.Buy(buyInput);
+                                    bank.MoneyInPocket -= value;
+                                    Console.WriteLine($"You have bought {buyInput}. Thank you for your purchase.");
+                                }
                             }
                             else
                             {
@@ -150,12 +159,8 @@ namespace CSharpAssignment
                             Console.WriteLine($"You have {bank.MyPocketMoney()} in your pockets");
                         }
                     }
-                    
-
-                    
                 }
             }
-            
             Console.WriteLine("Bye bye");
         }
     }

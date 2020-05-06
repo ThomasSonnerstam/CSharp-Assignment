@@ -3,7 +3,7 @@
     public class Bank
     {
         private int Balance = 500;
-        private int MoneyInPocket = 0;
+        public int MoneyInPocket = 0;
 
         public int MyBalance()
         {
@@ -17,7 +17,7 @@
 
         public bool Withdraw(int amount)
         {
-            if (amount >= Balance)
+            if (amount > Balance)
             {
                 return false;
             }
