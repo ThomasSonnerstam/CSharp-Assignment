@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Linq;
 
 namespace CSharpAssignment
 {
@@ -11,7 +11,7 @@ namespace CSharpAssignment
         {
             Inventory inventory = new Inventory();
             Bank bank = new Bank();
-            
+
             Console.WriteLine("Hello and welcome to the best virtual experience ever.");
 
             string commandInput = "";
@@ -35,6 +35,7 @@ namespace CSharpAssignment
                         Console.WriteLine("1. Balance");
                         Console.WriteLine("2. Withdraw");
                         Console.WriteLine("3. Deposit");
+                        Console.WriteLine("4. Count money in your pockets");
                         Console.WriteLine("0. Exit from bank");
                         
                         bankInput = Console.ReadLine();
@@ -55,7 +56,7 @@ namespace CSharpAssignment
                                 }
                                 else
                                 {
-                                    Console.WriteLine("Not enough money. Git gud.");
+                                    Console.WriteLine("Not enough funds.");
                                 }
                             }
                             else
@@ -83,13 +84,75 @@ namespace CSharpAssignment
                                 Console.WriteLine("You failed to enter a valid number.");
                             }
                         }
+                        else if (bankInput == "4")
+                        {
+                            Console.WriteLine($"You have {bank.MyPocketMoney()} in your pockets");
+                        }
                     }
                 }
                 
                 if (commandInput == "2")
                 {
                     Console.WriteLine("Welcome to the vending machine! Type \"goods\" to see what's in stock or \"history\" to see your purchase history.");
-                    break;
+                    string machineInput = "";
+
+                    while (!machineInput.Equals("0"))
+                    {
+                        Console.WriteLine("1. List current stock");
+                        Console.WriteLine("2. Buy item");
+                        Console.WriteLine("3. My goods");
+                        Console.WriteLine("4. Count money in my pockets");
+                        Console.WriteLine("0. Exit shop");
+
+                        machineInput = Console.ReadLine();
+
+                        if (machineInput == "1")
+                        {
+                            foreach (var item in inventory.GoodsAvailable)
+                            {
+                                Console.WriteLine($"- {item.Key} - costs: {item.Value}");
+                            }
+                        }
+                        else if (machineInput == "2")
+                        {
+                            Console.WriteLine("What would you like to buy?");
+                            var buyInput = Console.ReadLine();
+
+                            if (inventory.GoodsAvailable.ContainsKey(buyInput))
+                            {
+                                // Check MoneyInPocket, make sure it removes the cost. 
+                                inventory.Buy(buyInput);
+                                // bank.MoneyInPocket -= inventory.
+
+                            }
+                            else
+                            {
+                                Console.WriteLine("We don't have that in stock right now.");
+                            }
+                        }
+                        else if (machineInput == "3")
+                        {
+                            if (!inventory.MyGoods.Any())
+                            {
+                                Console.WriteLine("You have no goods at the moment.");
+                            }
+                            else
+                            {
+                                Console.WriteLine("You have this in your inventory:");
+                                foreach (var item in inventory.MyGoods)
+                                {
+                                    Console.WriteLine($"- {item}");
+                                }
+                            }
+                        }
+                        else if (machineInput == "4")
+                        {
+                            Console.WriteLine($"You have {bank.MyPocketMoney()} in your pockets");
+                        }
+                    }
+                    
+
+                    
                 }
             }
             
