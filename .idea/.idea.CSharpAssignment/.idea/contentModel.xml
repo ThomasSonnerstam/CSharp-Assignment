@@ -7,7 +7,6 @@
       <e p=".gitignore" t="Include" />
       <e p="Bank.cs" t="Include" />
       <e p="bin" t="ExcludeRecursive" />
-      <e p="Commands.cs" t="Include" />
       <e p="CSharpAssignment.csproj" t="IncludeRecursive" />
       <e p="CSharpAssignment.sln" t="IncludeFlat" />
       <e p="Inventory.cs" t="Include" />
