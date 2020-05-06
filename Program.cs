@@ -29,7 +29,6 @@ namespace CSharpAssignment
                     string bankInput = "";
                     Console.WriteLine("Welcome to your personal ATM.");
                     
-
                     while (!bankInput.Equals("0"))
                     {
                         Console.WriteLine("1. Balance");
@@ -47,7 +46,9 @@ namespace CSharpAssignment
                         else if (bankInput == "2")
                         {
                             Console.WriteLine("Type the amount you want to withdraw.");
+                            
                             int withdrawInput;
+                            
                             if (Int32.TryParse(Console.ReadLine(), out withdrawInput))
                             {
                                 if (bank.Withdraw(withdrawInput))
@@ -93,7 +94,9 @@ namespace CSharpAssignment
                 
                 if (commandInput == "2")
                 {
-                    Console.WriteLine("Welcome to the vending machine! Type \"goods\" to see what's in stock or \"history\" to see your purchase history.");
+                    
+                    Console.WriteLine("Welcome to the vending machine!");
+                    
                     string machineInput = "";
 
                     while (!machineInput.Equals("0"))
@@ -116,6 +119,7 @@ namespace CSharpAssignment
                         else if (machineInput == "2")
                         {
                             Console.WriteLine("What would you like to buy?");
+                            
                             var buyInput = Console.ReadLine();
                             int value;
                             inventory.GoodsAvailable.TryGetValue(buyInput, out value);

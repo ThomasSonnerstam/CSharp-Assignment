@@ -29,9 +29,15 @@
 
         public bool Deposit(int amount)
         {
-            Balance += amount;
-            MoneyInPocket -= amount;
-            return true;
+
+            if (amount < MoneyInPocket)
+            {
+                Balance += amount;
+                MoneyInPocket -= amount;
+                return true;
+            }
+
+            return false;
         }
         
     }
